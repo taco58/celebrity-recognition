@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Celebrity Detector</title>
+</head>
+<body>
+    <div class="results">
+        Results
+    </div>
+    <div class="container">
+        {% for result in results %}
+            <div class="result-item">
+                <div class="text">{{ result[0][2:-1] }}: {{ result[1] }}%</div>
+                <img src="{{ result[2] }}" alt="Image of {{ result[0] }}">
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
